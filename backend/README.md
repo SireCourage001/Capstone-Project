@@ -19,8 +19,8 @@ This is the backend API for the Movie Recommendation App. It is built with Expre
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/movie-recommendation-app-backend.git
-cd movie-app-backend
+git clone https://github.com/SireCourage001/Capstone-Project.git
+cd backend
 ```
 
 ### 2. Install dependencies
@@ -33,7 +33,7 @@ npm install
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
-TMDB_API_KEY=your_tmdb_key (if needed in backend)
+TMDB_API_KEY=your_tmdb_key 
 ```
 
 ### 4. Run the server
@@ -56,3 +56,8 @@ POST /api/auth/register
 POST /api/auth/login
 GET /api/movies/search?q=...
 ```
+## Backend Hosted on Render
+https://capstone-movie-app-backend.onrender.com
+
+
+

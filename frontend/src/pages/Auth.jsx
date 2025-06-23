@@ -6,7 +6,7 @@ const posters = [
   'https://image.tmdb.org/t/p/original/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg',
   'https://image.tmdb.org/t/p/original/8YFL5QQVPy3AgrEQxNYVSgiPEbe.jpg',
   'https://image.tmdb.org/t/p/original/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg',
-  'https://image.tmdb.org/t/p/original/eeijXm3553xvuFbkPFkDG6CLCbQ.jpg'
+  'https://image.tmdb.org/t/p/original/eeijXm3553xvuFbkPFkDG6CLCbQ.jpg',
 ];
 
 const Auth = () => {
@@ -44,13 +44,20 @@ const Auth = () => {
       : { email: formData.email, password: formData.password };
 
     try {
-      const res = await axios.post(`http://localhost:5000${endpoint}`, payload);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, payload);
 
       if (!isRegister) {
         localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data));
+        localStorage.setItem(
+          'user',
+          JSON.stringify({
+            name: res.data.name,
+            email: res.data.email,
+            _id: res.data._id,
+          })
+        );
         alert('Login successful!');
-        navigate('/');
+        navigate('/dashboard'); // 🔁 Redirect to dashboard
       } else {
         alert(res.data.message || 'User registered successfully');
         setIsRegister(false);
@@ -69,9 +76,7 @@ const Auth = () => {
           filter: 'brightness(0.3)',
         }}
       />
-
       <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
-
       <div className="z-20 w-full max-w-md p-8 bg-gray-800 bg-opacity-90 rounded-lg shadow-lg backdrop-blur">
         <h2 className="text-2xl font-bold text-center mb-6">
           {isRegister ? 'Register' : 'Login'}
@@ -144,3 +149,4 @@ const Auth = () => {
 };
 
 export default Auth;
+// movie-recommendation-app/frontend/src/pages/Auth.jsx 

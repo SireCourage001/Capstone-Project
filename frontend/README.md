@@ -18,8 +18,8 @@ This is the frontend of the Movie Recommendation App, built using React and Vite
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/movie-app-frontend.git
-cd movie-recommendation-app-frontend
+git clone https://github.com/SireCourage001/Capstone-Project.git
+cd frontend
 ```
 
 ### 2. Install dependencies
@@ -49,3 +49,7 @@ src/
   utils/
   App.jsx
   main.jsx
+
+
+## Frontend Hosted on Vercel
+https://capstone-movie-app-frontend.vercel.app/
